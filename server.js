@@ -23,3 +23,20 @@ app.get("/magic/:question", (req, res) =>{
 
     res.send(`<h1>The answer to your question is: ${response} </h1>`)
 })
+
+
+//soda countdown
+app.get("/:sodas", (req, res) =>{
+    const sodas = parseInt(req.params.sodas)
+    if(soda >= 1){
+        let num = soda -1;
+res.send(`${soda} bottles of soda in the fridge <a href="http://localhost:3000/${num}">Take one...</a>`)
+}
+else {
+    res.send(`we are out of soda <a href = "/99">play again?</a>`)
+}
+})
+// listening...
+app.listen(PORT, ()=>{
+    console.log("listening on port 3000")
+} );
